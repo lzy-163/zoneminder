@@ -22,7 +22,7 @@ jobs:
         include:
           - crypto_backend: gnutls
             crypto_package: libgnutls28-dev
-            jwt_package: libjwt-gnutls-dev
+            jwt_package: libjwt-dev
           - crypto_backend: openssl
             crypto_package: libssl-dev
             jwt_package: libjwt-dev

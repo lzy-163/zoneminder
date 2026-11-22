@@ -34,15 +34,15 @@ jobs:
 
     steps:
       - name: Update packages
-        run: apt-get -qq update && apt-get -qq upgrade
+        run: apt-get -qq update && apt-get -qq upgrade -y
       - name: Install git
-        run: apt-get -qq install git
+        run: apt-get -qq install -y git
       - uses: actions/checkout@v4
         with:
           submodules: recursive
       - name: Install dependencies
         run: >
-          apt-get -qq install make cmake g++
+          apt-get -qq install -y make cmake g++
           default-libmysqlclient-dev
           libavcodec-dev libavformat-dev libavutil-dev libswresample-dev libswscale-dev libavdevice-dev
           libcurl4-gnutls-dev libvlc-dev libvncserver-dev

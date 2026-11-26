@@ -52,6 +52,6 @@ jobs:
       - name: Prepare
         run: mkdir build
       - name: Configure
-        run: cd build && cmake --version && cmake .. -DBUILD_MAN=0 -DENABLE_WERROR=1 -DZM_CRYPTO_BACKEND=${{ matrix.crypto_backend }} -DZM_JWT_BACKEND=${{ matrix.jwt_backend }}
+        run: cd build && cmake --version && cmake .. -DBUILD_MAN=0 -DENABLE_WERROR=1 -DCMAKE_CXX_FLAGS="-Wno-error=deprecated-declarations -Wno-error=implicit-fallthrough" -DZM_CRYPTO_BACKEND=${{ matrix.crypto_backend }} -DZM_JWT_BACKEND=${{ matrix.jwt_backend }}
       - name: Build
         run: cd build && make -j3 | grep --line-buffered -Ev '^(cp lib\/|Installing.+\.pm)' && (exit ${PIPESTATUS[0]})
